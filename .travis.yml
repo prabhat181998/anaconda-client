@@ -37,6 +37,9 @@ matrix:
       arch: arm64
       language: generic
       env: PYTHON_VERSION=3.6
+    - os: linux
+      language: generic
+      env: PYTHON_VERSION=3.6
 
 cache:
   directories:
@@ -75,8 +78,8 @@ before_install:
 
   # Install dependencies. This include test and lint dependencies
   - $SUDO conda create -n test python=$PYTHON_VERSION
-  - $SUDO conda install -n test --file requirements.txt -q --no-pin
-  - $SUDO conda install -n test $CONDA_TEST_DEPENDENCIES -q --no-pin
+  #- $SUDO conda install -n test --file requirements.txt -q --no-pin
+  #- $SUDO conda install -n test $CONDA_TEST_DEPENDENCIES -q --no-pin
   - source activate test
 sudo: false
 install:
